@@ -10,6 +10,9 @@ inputs:
   github_token:
     description: 'Set a generated GITHUB_TOKEN for pushing to the remote branch.'
     required: false
+  dist_folder:
+    description: 'Set the dist folder'
+    required: false
 
 runs:
   using: "composite"
@@ -41,5 +44,5 @@ runs:
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ inputs.github_token }}
-        publish_dir: ./dist
+        publish_dir: ./${{ inputs.github_token || 'dist' }}
         
