@@ -44,5 +44,5 @@ runs:
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ inputs.github_token }}
-        publish_dir: ./${{ inputs.github_token || 'dist' }}
+        publish_dir: ./${{ inputs.dist_folder || 'dist' }}
         
